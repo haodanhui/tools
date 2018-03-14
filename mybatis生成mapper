@@ -1,0 +1,345 @@
+//Mysql
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<!-- 数据库驱动包位置 -->
+  <classPathEntry  location="F:\work\mysql-connector-java-5.1.26.jar"/>
+<!-- <classPathEntry location="C:\oracle\product\10.2.0\db_1\jdbc\lib\ojdbc14.jar" />-->
+<context id="DB2Tables" targetRuntime="MyBatis3">
+  <commentGenerator>
+    <property name="suppressAllComments" value="true" />
+  </commentGenerator>
+  <!-- 数据库链接URL、用户名、密码 -->
+  <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/ifpay_center?characterEncoding=utf8" userId="usercenter" password="userpass">
+  </jdbcConnection>
+  <javaTypeResolver>
+    <property name="forceBigDecimals" value="false" />
+  </javaTypeResolver>
+  <!-- 生成模型的包名和位置 -->
+  <javaModelGenerator targetPackage="com.ftvalue.walletCore.repository.model" targetProject="F:\work\ftvalue_extensions\walletCore\src\main\java">
+    <!-- enableSubPackages:是否让schema作为包的后缀 -->
+    <property name="enableSubPackages" value="true" />
+    <!-- 从数据库返回的值被清理前后的空格  -->
+    <property name="trimStrings" value="true" />
+  </javaModelGenerator>
+  <!-- 生成的映射文件包名和位置 -->
+  <sqlMapGenerator targetPackage="mapper"  targetProject="F:/work/ftvalue_extensions/walletCore/src/main/resources">
+    <property name="enableSubPackages" value="true" />
+  </sqlMapGenerator>
+  <!-- 生成DAO的包名和位置 -->
+  <javaClientGenerator type="XMLMAPPER" targetPackage="com.ftvalue.walletCore.repository.mapper" targetProject="F:/work/ftvalue_extensions/walletCore/src/main/java">
+    <property name="enableSubPackages" value="true" />
+  </javaClientGenerator>
+  <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+  <table tableName="table_key" domainObjectName="TableKey"
+         enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false"
+         selectByExampleQueryId="false">
+    <generatedKey identity="true" column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+  </table>
+  <!--<table tableName="cons_info" domainObjectName="ConsInfo"
+         enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false"
+         selectByExampleQueryId="false">
+    <generatedKey identity="true" column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+  </table>
+  <table tableName="cons_tradeperm" domainObjectName="ConsTradePerm"
+         enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false"
+         selectByExampleQueryId="false">
+    <generatedKey identity="true" column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+  </table>
+  <table tableName="op_log" domainObjectName="OpLog"
+         enableCountByExample="false" enableUpdateByExample="false"
+         enableDeleteByExample="false" enableSelectByExample="false"
+         selectByExampleQueryId="false">
+    <generatedKey identity="true" column="id" sqlStatement="SELECT LAST_INSERT_ID()"/>
+  </table>-->
+</context>
+</generatorConfiguration>
+
+
+//ORACLE
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <classPathEntry  location="F:\work\ifpay_core\customer\src\main\resources\lib\ojdbc6.jar"/>
+
+  <context id="IsmpTables" targetRuntime="MyBatis3" defaultModelType="flat">
+
+    <!-- 生成的Java文件的编码 -->
+    <property name="javaFileEncoding" value="UTF-8"/>
+
+    <property name="mergeable" value="false"></property>
+
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+    <commentGenerator>
+      <property name="suppressDate" value="true"/>
+    </commentGenerator>
+
+    <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+                    connectionURL="jdbc:oracle:thin:@139.224.36.65:1525:paydb"
+                    userId="boss"
+                    password="boss">
+    </jdbcConnection>
+
+    <!-- targetProject:自动生成代码的位置 -->
+    <javaModelGenerator targetPackage="com.ftvalue.customer.repository"
+                        targetProject="F:/work/ifpay_core/customer/src/main/java">
+      <!-- enableSubPackages:是否让schema作为包的后缀 -->
+      <property name="enableSubPackages" value="true" />
+      <!-- 从数据库返回的值被清理前后的空格  -->
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mapper"  targetProject="F:/work/ifpay_core/customer/src/main/resources/mapper/boss" >
+      <property name="enableSubPackages" value="fasle" />
+    </sqlMapGenerator>
+      <!--ANNOTATEDMAPPER/XMLMAPPER-->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.ftvalue.customer.repository.mapper.boss"
+                         targetProject="F:/work/ifpay_core/customer/src/main/java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="BO_PRODUCT" domainObjectName="BoProduct"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="BO_PRODUCT_SERVICE" domainObjectName="BoProductService"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <!--<table tableName="BO_CUSTOMER_PRODUCT_CHECK" domainObjectName="BoCustomerProductCheck"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>-->
+
+    <!--<table tableName="BO_AGENT_PAY_SERVICE_PARAMS" domainObjectName="BoAgentPayServiceParams"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="BO_BANK_DIC" domainObjectName="BoBankDic"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="BO_CUSTOMER_SERVICE" domainObjectName="BoCustomerService"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="BO_INNER_ACCOUNT" domainObjectName="BoInnerAccount"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="BO_MERCHANT" domainObjectName="BoMerchant"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="BO_NEWS" domainObjectName="BoNews"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="BO_OPERATOR" domainObjectName="BoOperator"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="BO_REFUND_MODEL" domainObjectName="BoRefundModel"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>-->
+
+  <!--  <table tableName="CM_LOGIN_LOG" domainObjectName="CmLoginLog"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="ROLE" domainObjectName="Role"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="MODEL" domainObjectName="Model"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="CM_OP_LOG" domainObjectName="CmOpLog"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="CM_OP_RELATION" domainObjectName="CmOpRelation"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="CM_PERSONAL_INFO" domainObjectName="CmPersonalInfo"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="MAPI_ASYNC_NOTIFY" domainObjectName="MapiAsyncNotify"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="REFUND_AUTH" domainObjectName="RefundAuth"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="REFUND_BATCH" domainObjectName="RefundBatch"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="REFUND_HISTORY" domainObjectName="RefundHistory"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="CM_ROYALTY_BINDING" domainObjectName="RoyaltyBinding"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="TRADE_ACCOUNT_COMMAND_SAF" domainObjectName="TradeAccountCommandSaf"
+                   enableUpdateByExample="false"
+                   enableDeleteByExample="false" enableSelectByExample="false"
+                   selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="TRADE_BASE" domainObjectName="TradeBase"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ID" sqlStatement="DB2_MF" identity="true"/>
+    </table>
+
+    <table tableName="TRADE_CHARGE" domainObjectName="TradeCharge"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="TRADE_FROZEN" domainObjectName="TradeFrozen"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="TRADE_PAYMENT" domainObjectName="TradePayment"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="TRADE_REFUND" domainObjectName="TradeRefund"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="TRADE_TRANSFER" domainObjectName="TradeTransfer"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="TRADE_WITHDRAWN" domainObjectName="TradeWithdrawn"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="TRADE_UNFROZEN" domainObjectName="TradeUnfrozen"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+
+    <table tableName="CM_BINDING_MONEY" domainObjectName="BindingMoney"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>-->
+
+  </context>
+
+</generatorConfiguration>
+
+
+//统一启动类
+
+  package com.ftvalue.walletCore.repository;
+
+import org.mybatis.generator.api.MyBatisGenerator;
+import org.mybatis.generator.config.Configuration;
+import org.mybatis.generator.config.xml.ConfigurationParser;
+import org.mybatis.generator.exception.InvalidConfigurationException;
+import org.mybatis.generator.exception.XMLParserException;
+import org.mybatis.generator.internal.DefaultShellCallback;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyBatisGeneratorService {
+
+	/*public static void main(String[] args) throws IOException, XMLParserException,
+            InvalidConfigurationException, SQLException, InterruptedException {
+		List<String> warnings = new ArrayList<String>();
+		boolean overwrite = true;
+        ClassLoader.getSystemResourceAsStream("mybatisGenerator.xml");
+        File configFile = new File("F:/work/ftvalue_extensions/walletCore/src/main/resources/mapper/mybatisGenerator.xml");
+		ConfigurationParser cp = new ConfigurationParser(warnings);
+		Configuration config = cp.parseConfiguration(configFile);
+		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+		MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
+		myBatisGenerator.generate(null);
+		System.out.println(warnings);
+	}*/
+}
