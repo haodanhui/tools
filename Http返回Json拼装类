@@ -1,0 +1,26 @@
+package com.ftvalue.walletCore.result;
+
+/**
+ * Created by 郝丹辉 on 2017/9/19.
+ */
+public class DataResult extends JsonResult {
+
+    private Object data;
+
+    public DataResult(String respCode, String respMessage) {
+        super(respCode, respMessage);
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public DataResult(String respCode, String respMessage, Object data) {
+        super(respCode, respMessage);
+        this.data = data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+}
