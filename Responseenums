@@ -1,0 +1,67 @@
+package com.ftvalue.walletCore.result.enums;
+
+/**
+ * Created by 郝丹辉 on 2017/9/7.
+ */
+public enum ResultCode {
+
+    /**成功*/
+    SUCCESS ("S0001","成功"),
+
+
+    /**系统异常*/
+    SYSTEM_ERROR("F9999","系统异常"),
+
+    /**
+     * 用户行为
+     */
+    ERROR_USERNAMEISBLANK("F10001","用户名为空"),
+    ERROR_LOGINNAMEISBLANK("F10002","登录名为空"),
+    ERROR_USERPWDISBLANK("F10003","登录密码为空"),
+    ERROR_MOBILEISBLANK("F10004","手机号为空"),
+    ERROR_EMAILISBLANK("F10005","邮箱为空"),
+    ERROR_REGISTERFAILED("F10006","注册失败"),
+    ERROR_USERNOISBLANK("F10007","用户号为空"),
+    ERROR_TWOPASSDIFF("F10008","两次输入密码不一致"),
+    ERROR_USERNOTINWALLET("F10009","用户未在钱包注册"),
+    ERROR_USERSTATUSNOTNORMAL("F10010","用户状态异常"),
+    ERROR_USERSTATUSISNORMAL("F10011","用户状态正常"),
+    ERROR_PWDISNOTRIGHT("F10012","密码格式不正确"),
+    ERROR_UPDATEPWDFAILED("F10013","修改密码失败"),
+    ERROR_NEWUSERPWDISBLANK("F10014","新登录密码为空"),
+
+    /**
+     * 操作日志
+     */
+    ERROR_PARAMSISBLANK("F20001","参数为空"),
+    ERROR_OPRESULTISBLANK("F20002","操作结果为空"),
+    ERROR_ACTIONISBLANK("F20003","动作为空"),
+    ERROR_NOTFOUNDOPLOGS("F20004","未找到相关操作记录"),
+    ERROR_PAGEANDLIMITBLANK("F20005","分页信息错误"),
+
+    /**
+     * 用户查询
+     */
+    ERROR_USERNOTEXITS("F30001","用户不存在"),
+
+    ;
+
+
+    ResultCode(String s, String msg) {
+        this.val = s;
+        this.msg = msg;
+    }
+
+    public String val() {
+        return val;
+    }
+
+    public String msg() {
+        return msg;
+    }
+
+    private String val;
+    private String msg;
+
+
+}
